@@ -1,0 +1,122 @@
+# Download this file using PowerShell v3 under Windows with the following comand
+# Invoke-WebRequest https://gist.githubusercontent.com/kmorcinek/2710267/raw/ -OutFile .gitignore
+ 
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+ 
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+ 
+## Uncomment to Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
+#!packages/*/build/
+ 
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+ 
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.log
+*.scc
+
+.vs/
+ 
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+ 
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+ 
+# TeamCity is a build add-in
+_TeamCity*
+ 
+# Click-Once directory
+publish/
+ 
+# Publish Web Output
+*.Publish.xml
+ 
+# NuGet Packages Directory, If you have NuGet Package Restore enabled, uncomment the next line
+packages/
+ 
+# Windows Azure Build Output
+csx
+*.build.csdef
+ 
+# Windows Store app package directory
+AppPackages/
+ 
+# Backup & report files from converting an old project file to a newer
+# Visual Studio version. Backup files are not needed, because we have git ;-)
+_UpgradeReport_Files/
+Backup*/
+UpgradeLog*.XML
+UpgradeLog*.htm
+ 
+JSLintNet.json
+
+# =========================
+# Windows detritus
+# =========================
+ 
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+ 
+# Folder config file
+Desktop.ini
+ 
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+ 
+# Mac desktop service store files
+.DS_Store
+.DS_Store?
+ 
+# SASS Compiler cache
+.sass-cache
+ 
+# Visual Studio 2014 CTP
+**/*.sln.ide
+
+._*
+.Spotlight-V100
+.Trashes
+
+
+# =========================
+# JS Packages
+# =========================
+
+node_modules/
+bower_components/
+!
