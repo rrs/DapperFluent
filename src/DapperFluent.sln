@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rrs.Dapper.Fluent.Net40", "
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rrs.Dapper.Fluent.Shared", "Rrs.Dapper.Fluent.Shared\Rrs.Dapper.Fluent.Shared.shproj", "{AFB87441-2666-4F79-BAEF-1E1F501E6996}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C2B24D77-F7DC-46AB-B54B-2B41B8B49DE5}"
+	ProjectSection(SolutionItems) = preProject
+		..\CHANGELOG.md = ..\CHANGELOG.md
+		..\README.md = ..\README.md
+	EndProjectSection
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rrs.Dapper.Fluent", "Rrs.Dapper.Fluent\Rrs.Dapper.Fluent.csproj", "{D61F8412-4DD3-42BA-801D-E6E754FA217D}"
 EndProject
 Global
