@@ -4,20 +4,20 @@
     <Description>Rrs.Dapper.Fluent Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2018 Robert Snipe</Copyright>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net40</TargetFramework>
     <AssemblyName>Rrs.Dapper.Fluent</AssemblyName>
     <PackageId>Rrs.Dapper.Fluent</PackageId>
-    <PackageTags>Dapper.Fluent;Dapper;Fluent;Standard20</PackageTags>
+    <PackageTags>Dapper.Fluent;Dapper;Fluent;Net40</PackageTags>
     <PackageProjectUrl>https://github.com/rrs/DapperFluent</PackageProjectUrl>
     <Version>1.0.0</Version>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Company>rrs</Company>
   </PropertyGroup>
 
-  <Import Project="..\Rrs.Dapper.Fluent.Shared\Rrs.Dapper.Fluent.Shared.projitems" Label="Shared" />
-
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="1.60.6" />
+    <PackageReference Include="Dapper" Version="1.50.2" />
   </ItemGroup>
+
+  <Import Project="..\Rrs.Dapper.Fluent.Shared\Rrs.Dapper.Fluent.Shared.projitems" Label="Shared" />
 
 </Project>

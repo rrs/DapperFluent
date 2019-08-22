@@ -1,20 +1,31 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.136
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rrs.Dapper.Fluent", "Rrs.Dapper.Fluent\Rrs.Dapper.Fluent.csproj", "{32AFD873-AFFF-4924-8C4E-1EB8FF093699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rrs.Dapper.Fluent.Net40", "Rrs.Dapper.Fluent.Net40\Rrs.Dapper.Fluent.Net40.csproj", "{C08A9494-A841-4FED-AC69-E7E62EBEB677}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Rrs.Dapper.Fluent.Shared", "Rrs.Dapper.Fluent.Shared\Rrs.Dapper.Fluent.Shared.shproj", "{AFB87441-2666-4F79-BAEF-1E1F501E6996}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rrs.Dapper.Fluent", "Rrs.Dapper.Fluent\Rrs.Dapper.Fluent.csproj", "{D61F8412-4DD3-42BA-801D-E6E754FA217D}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Rrs.Dapper.Fluent.Shared\Rrs.Dapper.Fluent.Shared.projitems*{afb87441-2666-4f79-baef-1e1f501e6996}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{32AFD873-AFFF-4924-8C4E-1EB8FF093699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32AFD873-AFFF-4924-8C4E-1EB8FF093699}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32AFD873-AFFF-4924-8C4E-1EB8FF093699}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32AFD873-AFFF-4924-8C4E-1EB8FF093699}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C08A9494-A841-4FED-AC69-E7E62EBEB677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C08A9494-A841-4FED-AC69-E7E62EBEB677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C08A9494-A841-4FED-AC69-E7E62EBEB677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C08A9494-A841-4FED-AC69-E7E62EBEB677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D61F8412-4DD3-42BA-801D-E6E754FA217D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D61F8412-4DD3-42BA-801D-E6E754FA217D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D61F8412-4DD3-42BA-801D-E6E754FA217D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D61F8412-4DD3-42BA-801D-E6E754FA217D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

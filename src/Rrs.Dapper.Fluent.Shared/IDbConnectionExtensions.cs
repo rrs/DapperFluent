@@ -2,7 +2,7 @@
 
 namespace Rrs.Dapper.Fluent
 {
-    public static class IDbConnectionExtensions
+    public static partial class IDbConnectionExtensions
     {
         public static DapperWrapper Sql(this IDbConnection c, string command)
         {

@@ -1,39 +1,35 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Rrs.Dapper.Fluent
 {
-    public class PrototypeReader<T>
+    public partial class PrototypeReader<T>
     {
-        private readonly IDapperObjectQueryable _dapperWrapper;
-
-        internal PrototypeReader(IDapperObjectQueryable dapperWrapper)
+        public Task<T> SingleAsync()
         {
-            _dapperWrapper = dapperWrapper;
+            return _dapperWrapper.SingleAsync<T>();
         }
 
-        public T Single()
+        public Task<T> SingleOrDefaultAsync()
         {
-            return _dapperWrapper.Single<T>();
+            return _dapperWrapper.SingleOrDefaultAsync<T>();
         }
 
-        public T SingleOrDefault()
+        public Task<T> FirstAsync()
         {
-            return _dapperWrapper.SingleOrDefault<T>();
+            return _dapperWrapper.FirstAsync<T>();
         }
 
-        public T First()
+        public Task<T> FirstOrDefaultAsync()
         {
-            return _dapperWrapper.First<T>();
+            return _dapperWrapper.FirstOrDefaultAsync<T>();
         }
 
-        public T FirstOrDefault()
+        public Task<IEnumerable<T>>  QueryAsync()
         {
-            return _dapperWrapper.FirstOrDefault<T>();
-        }
-
-        public IEnumerable<T> Query()
-        {
-            return _dapperWrapper.Query<T>();
+            return _dapperWrapper.QueryAsync<T>();
         }
     }
 }

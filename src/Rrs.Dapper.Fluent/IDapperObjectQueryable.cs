@@ -1,13 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Rrs.Dapper.Fluent
 {
-    interface IDapperObjectQueryable
+    partial interface IDapperObjectQueryable
     {
-        T First<T>();
-        T FirstOrDefault<T>();
-        T Single<T>();
-        T SingleOrDefault<T>();
-        IEnumerable<T> Query<T>(bool buffered = true);
+        Task<T> FirstAsync<T>();
+        Task<T> FirstOrDefaultAsync<T>();
+        Task<T> SingleAsync<T>();
+        Task<T> SingleOrDefaultAsync<T>();
+        Task<IEnumerable<T>> QueryAsync<T>();
     }
 }

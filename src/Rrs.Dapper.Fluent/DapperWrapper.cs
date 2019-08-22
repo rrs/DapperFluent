@@ -2,123 +2,77 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace Rrs.Dapper.Fluent
 {
-    public class DapperWrapper : IDapperObjectQueryable
+    public partial class DapperWrapper
     {
-        private readonly IDbConnection _c;
-        private readonly IDbTransaction _t;
-        private readonly CommandType _commandType;
-        private readonly string _command;
-        private object _params;
-        private int? _timeout;
-
-        internal DapperWrapper(IDbConnection c, IDbTransaction t, CommandType commandType, string command)
+        public Task<int> ExecuteAsync()
         {
-            _c = c;
-            _t = t;
-            _commandType = commandType;
-            _command = command;
+            return _c.ExecuteAsync(_command, _params, _t, _timeout, _commandType);
         }
 
-        internal DapperWrapper(IDbConnection c, CommandType commandType, string command)
+
+        public Task<T> ExecuteScalarAsync<T>()
         {
-            _c = c;
-            _commandType = commandType;
-            _command = command;
+            return _c.ExecuteScalarAsync<T>(_command, _params, _t, _timeout, _commandType);
         }
 
-        public DapperWrapper Parameters(object @params)
+        public async Task<DataTable> ToDataTableAsync(bool removeReadonly = true)
         {
-            _params = @params;
-            return this;
+            var reader = await _c.ExecuteReaderAsync(_command, _params, _t, _timeout, _commandType);
+            return DataReaderHelper.ReadTable(reader, removeReadonly);
         }
 
-        public DapperWrapper Timeout(int timeout)
+        public async Task<DataRow> ToDataRowAsync(bool removeReadonly = true)
         {
-            _timeout = timeout;
-            return this;
+            var table = await ToDataTableAsync(removeReadonly);
+            return table.Rows[0];
         }
 
-        public void Execute()
+        public Task<IEnumerable<T>> QueryAsync<T>()
         {
-            _c.Execute(_command, _params, _t, _timeout, _commandType);
+            return _c.QueryAsync<T>(_command, _params, _t, _timeout, _commandType);
         }
 
-        public T ExecuteScalar<T>()
+        public Task<T> FirstAsync<T>()
         {
-            return _c.ExecuteScalar<T>(_command, _params, _t, _timeout, _commandType);
+            return _c.QueryFirstAsync<T>(_command, _params, _t, _timeout, _commandType);
         }
 
-        public DataTable ToDataTable(bool removeReadonly = true)
+        public Task<T> FirstOrDefaultAsync<T>()
         {
-            var reader = _c.ExecuteReader(_command, _params, _t, _timeout, _commandType);
-            var dataTable = new DataTable();
-            dataTable.Load(reader);
-            if (removeReadonly)
-            {
-                foreach (DataColumn c in dataTable.Columns)
-                {
-                    c.ReadOnly = false;
-                }
-            }
-
-            return dataTable;
+            return _c.QueryFirstOrDefaultAsync<T>(_command, _params, _t, _timeout, _commandType);
         }
 
-        public DataRow ToDataRow(bool removeReadonly = true)
+        public Task<T> SingleAsync<T>()
         {
-            return ToDataTable(removeReadonly).Rows[0];
+            return _c.QuerySingleAsync<T>(_command, _params, _t, _timeout, _commandType);
         }
 
-        public IEnumerable<T> Query<T>(bool buffered = true)
+        public Task<T> SingleOrDefaultAsync<T>()
         {
-            return _c.Query<T>(_command, _params, _t, buffered, _timeout, _commandType);
+            return _c.QuerySingleOrDefaultAsync<T>(_command, _params, _t, _timeout, _commandType);
         }
 
-        public T First<T>()
+        public Task<SqlMapper.GridReader> QueryMultipleAsync()
         {
-            return _c.QueryFirst<T>(_command, _params, _t, _timeout, _commandType);
+            return _c.QueryMultipleAsync(_command, _params, _t, _timeout, _commandType);
         }
 
-        public T FirstOrDefault<T>()
+        public Task<IDataReader> ExecuteReaderAsync()
         {
-            return _c.QueryFirstOrDefault<T>(_command, _params, _t, _timeout, _commandType);
+            return _c.ExecuteReaderAsync(_command, _params, _t, _timeout, _commandType);
         }
 
-        public T Single<T>()
+        public async Task<IEnumerable<T>> ExecuteReaderAsync<T>(Func<IDataRecord, T> readerFunc)
         {
-            return _c.QuerySingle<T>(_command, _params, _t, _timeout, _commandType);
+            var reader = await ExecuteReaderAsync();
+            return DataReaderHelper.ReadWithFunction(reader, readerFunc);
         }
 
-        public T SingleOrDefault<T>()
-        {
-            return _c.QuerySingleOrDefault<T>(_command, _params, _t, _timeout, _commandType);
-        }
-
-        public SqlMapper.GridReader QueryMultiple()
-        {
-            return _c.QueryMultiple(_command, _params, _t, _timeout, _commandType);
-        }
-
-        public IDataReader ExecuteReader()
-        {
-            return _c.ExecuteReader(_command, _params, _t, _timeout, _commandType);
-        }
-
-        public IEnumerable<T> ExecuteReader<T>(Func<IDataRecord, T> readerFunc)
-        {
-            using (var reader = ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    yield return readerFunc(reader);
-                }
-            }
-        }
-
-        public PrototypeReader<T> Prototype<T>(T _)
+        public PrototypeReader<T> PrototypeAsync<T>(T _)
         {
             return new PrototypeReader<T>(this);
         }
