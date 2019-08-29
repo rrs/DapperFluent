@@ -1,6 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <Version>1.0.0.0</Version>
+    <PackageVersion>1.0.0.0</PackageVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0.0</InformationalVersion>
     <Description>Rrs.Dapper.Fluent Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2018 Robert Snipe</Copyright>
@@ -9,7 +14,6 @@
     <PackageId>Rrs.Dapper.Fluent</PackageId>
     <PackageTags>Dapper.Fluent;Dapper;Fluent;Standard20</PackageTags>
     <PackageProjectUrl>https://github.com/rrs/DapperFluent</PackageProjectUrl>
-    <Version>1.0.0</Version>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Company>rrs</Company>
   </PropertyGroup>

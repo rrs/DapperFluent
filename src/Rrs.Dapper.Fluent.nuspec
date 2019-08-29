@@ -12,7 +12,7 @@
         <tags>Data Dapper Fluent Net40 Standard20</tags>
     </metadata>
     <files>
-        <file src="Rrs.Dapper.Fluent.Net40\bin\Release\net40\**" target="lib\net40\Rrs.Dapper.Fluent.dll" />
-        <file src="Rrs.Dapper.Fluent\bin\Release\netstandard2.0\**" target="lib\netstandard20\Rrs.Dapper.Fluent.dll" />
+        <file src="Rrs.Dapper.Fluent.Net40\bin\Release\net40\**" target="lib\net40\" />
+        <file src="Rrs.Dapper.Fluent\bin\Release\netstandard2.0\**" target="lib\netstandard20\" />
     </files>
 </package>

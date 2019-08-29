@@ -11,8 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		..\CHANGELOG.md = ..\CHANGELOG.md
 		..\README.md = ..\README.md
+		Rrs.Dapper.Fluent.nuspec = Rrs.Dapper.Fluent.nuspec
 	EndProjectSection
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rrs.Dapper.Fluent", "Rrs.Dapper.Fluent\Rrs.Dapper.Fluent.csproj", "{D61F8412-4DD3-42BA-801D-E6E754FA217D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rrs.Dapper.Fluent", "Rrs.Dapper.Fluent\Rrs.Dapper.Fluent.csproj", "{D61F8412-4DD3-42BA-801D-E6E754FA217D}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
