@@ -9,7 +9,7 @@
     <Description>Rrs.Dapper.Fluent Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2018 Robert Snipe</Copyright>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>net45;netstandard20</TargetFrameworks>
     <AssemblyName>Rrs.Dapper.Fluent</AssemblyName>
     <PackageId>Rrs.Dapper.Fluent</PackageId>
     <PackageTags>Dapper.Fluent;Dapper;Fluent;Standard20</PackageTags>
@@ -20,8 +20,11 @@
 
   <Import Project="..\Rrs.Dapper.Fluent.Shared\Rrs.Dapper.Fluent.Shared.projitems" Label="Shared" />
 
-  <ItemGroup>
-    <PackageReference Include="Dapper" Version="1.60.6" />
+  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
+    <PackageReference Include="Dapper" Version="1.50.2" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard20'">
+    <PackageReference Include="Dapper" Version="1.60.6" />
+  </ItemGroup>
 </Project>

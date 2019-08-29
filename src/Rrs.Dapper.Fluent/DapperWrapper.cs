@@ -13,7 +13,6 @@ namespace Rrs.Dapper.Fluent
             return _c.ExecuteAsync(_command, _params, _t, _timeout, _commandType);
         }
 
-
         public Task<T> ExecuteScalarAsync<T>()
         {
             return _c.ExecuteScalarAsync<T>(_command, _params, _t, _timeout, _commandType);
