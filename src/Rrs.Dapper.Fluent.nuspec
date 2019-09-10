@@ -10,7 +10,19 @@
         <description>Rrs.Dapper.Fluent Class Library</description>
         <copyright>Copyright (c) 2018 Robert Snipe</copyright>
         <tags>Data Dapper Fluent Net40 Standard20</tags>
+        <dependencies>
+	      <group targetFramework=".NETFramework4.0">
+	        <dependency id="Dapper" version="1.50.2" exclude="Build,Analyzers" />
+	      </group>
+	      <group targetFramework=".NETFramework4.5">
+	        <dependency id="Dapper" version="1.50.2" exclude="Build,Analyzers" />
+	      </group>
+	      <group targetFramework=".NETStandard2.0">
+	        <dependency id="Dapper" version="2.0.4" exclude="Build,Analyzers" />
+	      </group>
+	    </dependencies>
     </metadata>
+
     <files>
         <file src="Rrs.Dapper.Fluent.Net40\bin\Release\net40\**" target="lib\net40\" />
         <file src="Rrs.Dapper.Fluent\bin\Release\net45\**" target="lib\net45\" />
