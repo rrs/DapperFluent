@@ -18,6 +18,11 @@ namespace Rrs.Dapper.Fluent
             return _c.ExecuteScalarAsync<T>(_command, _params, _t, _timeout, _commandType);
         }
 
+        public Task<dynamic> ExecuteScalarAsync()
+        {
+            return _c.ExecuteScalarAsync(_command, _params, _t, _timeout, _commandType);
+        }
+
         public async Task<DataTable> ToDataTableAsync(bool removeReadonly = true)
         {
             var reader = await _c.ExecuteReaderAsync(_command, _params, _t, _timeout, _commandType);
@@ -29,27 +34,43 @@ namespace Rrs.Dapper.Fluent
             var table = await ToDataTableAsync(removeReadonly);
             return table.Rows[0];
         }
-
+        public Task<IEnumerable<dynamic>> QueryAsync()
+        {
+            return _c.QueryAsync(_command, _params, _t, _timeout, _commandType);
+        }
         public Task<IEnumerable<T>> QueryAsync<T>()
         {
             return _c.QueryAsync<T>(_command, _params, _t, _timeout, _commandType);
+        }
+        public Task<dynamic> FirstAsync()
+        {
+            return _c.QueryFirstAsync(new CommandDefinition(_command, _params, _t, _timeout, _commandType));
         }
 
         public Task<T> FirstAsync<T>()
         {
             return _c.QueryFirstAsync<T>(_command, _params, _t, _timeout, _commandType);
         }
-
+        public Task<dynamic> FirstOrDefaultAsync()
+        {
+            return _c.QueryFirstOrDefaultAsync(new CommandDefinition(_command, _params, _t, _timeout, _commandType));
+        }
         public Task<T> FirstOrDefaultAsync<T>()
         {
             return _c.QueryFirstOrDefaultAsync<T>(_command, _params, _t, _timeout, _commandType);
         }
-
+        public Task<dynamic> SingleAsync()
+        {
+            return _c.QuerySingleAsync(new CommandDefinition(_command, _params, _t, _timeout, _commandType));
+        }
         public Task<T> SingleAsync<T>()
         {
             return _c.QuerySingleAsync<T>(_command, _params, _t, _timeout, _commandType);
         }
-
+        public Task<dynamic> SingleOrDefaultAsync()
+        {
+            return _c.QuerySingleOrDefaultAsync(new CommandDefinition(_command, _params, _t, _timeout, _commandType));
+        }
         public Task<T> SingleOrDefaultAsync<T>()
         {
             return _c.QuerySingleOrDefaultAsync<T>(_command, _params, _t, _timeout, _commandType);
@@ -69,11 +90,6 @@ namespace Rrs.Dapper.Fluent
         {
             var reader = await ExecuteReaderAsync();
             return DataReaderHelper.ReadWithFunction(reader, readerFunc);
-        }
-
-        public PrototypeReader<T> PrototypeAsync<T>(T _)
-        {
-            return new PrototypeReader<T>(this);
         }
     }
 }

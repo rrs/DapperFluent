@@ -5,7 +5,7 @@ using System.Data;
 
 namespace Rrs.Dapper.Fluent
 {
-    public partial class DapperWrapper : IDapperObjectQueryable
+    public partial class DapperWrapper
     {
         private readonly IDbConnection _c;
         private readonly IDbTransaction _t;
@@ -46,6 +46,11 @@ namespace Rrs.Dapper.Fluent
             return _c.Execute(_command, _params, _t, _timeout, _commandType);
         }
 
+        public dynamic ExecuteScalar()
+        {
+            return _c.ExecuteScalar(_command, _params, _t, _timeout, _commandType);
+        }
+
         public T ExecuteScalar<T>()
         {
             return _c.ExecuteScalar<T>(_command, _params, _t, _timeout, _commandType);
@@ -62,9 +67,19 @@ namespace Rrs.Dapper.Fluent
             return ToDataTable(removeReadonly).Rows[0];
         }
 
+        public IEnumerable<dynamic> Query(bool buffered = true)
+        {
+            return _c.Query(_command, _params, _t, buffered, _timeout, _commandType);
+        }
+
         public IEnumerable<T> Query<T>(bool buffered = true)
         {
             return _c.Query<T>(_command, _params, _t, buffered, _timeout, _commandType);
+        }
+
+        public dynamic First()
+        {
+            return _c.QueryFirst(_command, _params, _t, _timeout, _commandType);
         }
 
         public T First<T>()
@@ -72,14 +87,29 @@ namespace Rrs.Dapper.Fluent
             return _c.QueryFirst<T>(_command, _params, _t, _timeout, _commandType);
         }
 
+        public dynamic FirstOrDefault()
+        {
+            return _c.QueryFirstOrDefault(_command, _params, _t, _timeout, _commandType);
+        }
+
         public T FirstOrDefault<T>()
         {
             return _c.QueryFirstOrDefault<T>(_command, _params, _t, _timeout, _commandType);
         }
 
+        public dynamic Single()
+        {
+            return _c.QuerySingle(_command, _params, _t, _timeout, _commandType);
+        }
+
         public T Single<T>()
         {
             return _c.QuerySingle<T>(_command, _params, _t, _timeout, _commandType);
+        }
+        
+        public dynamic SingleOrDefault()
+        {
+            return _c.QuerySingleOrDefault(_command, _params, _t, _timeout, _commandType);
         }
 
         public T SingleOrDefault<T>()
@@ -101,11 +131,6 @@ namespace Rrs.Dapper.Fluent
         {
             var reader = ExecuteReader();
             return DataReaderHelper.ReadWithFunction(reader, readerFunc);
-        }
-
-        public PrototypeReader<T> Prototype<T>(T _)
-        {
-            return new PrototypeReader<T>(this);
         }
     }
 }

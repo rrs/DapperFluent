@@ -11,8 +11,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)DapperWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataReaderHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IDapperObjectQueryable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IDbConnectionExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)PrototypeReader.cs" />
   </ItemGroup>
 </Project>
