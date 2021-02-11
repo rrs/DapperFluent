@@ -1,15 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>1.0.0.0</Version>
-    <PackageVersion>1.0.0.0</PackageVersion>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-    <InformationalVersion>1.0.0.0</InformationalVersion>
+    <Version>2.0.0</Version>
     <Description>Rrs.Dapper.Fluent Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2018 Robert Snipe</Copyright>
-    <TargetFrameworks>net45;netstandard20</TargetFrameworks>
+    <TargetFrameworks>net452;netstandard20</TargetFrameworks>
     <AssemblyName>Rrs.Dapper.Fluent</AssemblyName>
     <PackageId>Rrs.Dapper.Fluent</PackageId>
     <PackageTags>Dapper.Fluent;Dapper;Fluent;Standard20</PackageTags>
@@ -18,13 +14,11 @@
     <Company>rrs</Company>
   </PropertyGroup>
 
-  <Import Project="..\Rrs.Dapper.Fluent.Shared\Rrs.Dapper.Fluent.Shared.projitems" Label="Shared" />
-
-  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
-    <PackageReference Include="Dapper" Version="1.50.2" />
+  <ItemGroup Condition="'$(TargetFramework)'=='net452'">
+    <PackageReference Include="Dapper" Version="1.60.6" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard20'">
-    <PackageReference Include="Dapper" Version="2.0.4" />
+    <PackageReference Include="Dapper" Version="2.0.78" />
   </ItemGroup>
 </Project>
