@@ -63,6 +63,12 @@ namespace Rrs.Dapper.Fluent
             return DataReaderHelper.ReadTable(reader, removeReadonly);
         }
 
+        public DataSet ToDataSet(bool removeReadonly = true)
+        {
+            var reader = _c.ExecuteReader(_command, _params, _t, _timeout, _commandType);
+            return DataReaderHelper.ReadDataSet(reader, removeReadonly);
+        }
+
         public DataRow ToDataRow(bool removeReadonly = true)
         {
             return ToDataTable(removeReadonly).Rows[0];
@@ -152,6 +158,12 @@ namespace Rrs.Dapper.Fluent
         {
             var reader = await _c.ExecuteReaderAsync(_command, _params, _t, _timeout, _commandType);
             return DataReaderHelper.ReadTable(reader, removeReadonly);
+        }
+
+        public async Task<DataSet> ToDataSetAsync(bool removeReadonly = true)
+        {
+            var reader = await _c.ExecuteReaderAsync(_command, _params, _t, _timeout, _commandType);
+            return DataReaderHelper.ReadDataSet(reader, removeReadonly);
         }
 
         public async Task<DataRow> ToDataRowAsync(bool removeReadonly = true)
