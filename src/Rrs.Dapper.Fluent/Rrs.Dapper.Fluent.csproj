@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
     <Description>Rrs.Dapper.Fluent Class Library</Description>
     <Authors>Robert Snipe</Authors>
     <Copyright>Copyright (c) 2018 Robert Snipe</Copyright>
-    <TargetFrameworks>net452;netstandard20</TargetFrameworks>
+    <TargetFrameworks>net462;netstandard20;net8.0</TargetFrameworks>
     <AssemblyName>Rrs.Dapper.Fluent</AssemblyName>
     <PackageId>Rrs.Dapper.Fluent</PackageId>
     <PackageTags>Dapper.Fluent;Dapper;Fluent;Standard20</PackageTags>
@@ -14,11 +14,7 @@
     <Company>rrs</Company>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='net452'">
-    <PackageReference Include="Dapper" Version="1.60.6" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard20'">
-    <PackageReference Include="Dapper" Version="2.0.123" />
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.66" />
   </ItemGroup>
 </Project>
